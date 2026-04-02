@@ -449,7 +449,10 @@
               "env.set('depositpaid', replaceIn('{{$randomBoolean}}'));\r",
               "env.set('checkin', moment().add(2, 'days').format(\"YYYY-MM-DD\"));\r",
               "env.set('checkout', moment().add(5, 'days').format(\"YYYY-MM-DD\"));\r",
-              "env.set('additionalneeds', replaceIn('{{$randomWords}}'));"
+              "env.set('additionalneeds', replaceIn('{{$randomWords}}'));\r",
+              "\r",
+              "//debug\r",
+              "console.log(\"Current Token being used\" + env.get('token'));"
             ],
             "type": "text/javascript",
             "packages": {},
