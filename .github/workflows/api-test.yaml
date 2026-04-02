@@ -27,5 +27,5 @@ jobs:
         run: |
           newman run Restful-Booker.postman_collection.json \
           -e Restful-Booker.postman_environment.json \
-          --env-var "username=$AUTH_USER" \
-          --env-var "password=$AUTH_PASS"
+          --env-var "username=${AUTH_USER}" \
+          --env-var "password=${AUTH_PASS}"
