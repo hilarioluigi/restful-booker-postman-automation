@@ -381,7 +381,17 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.environment.set('token', pm.response.json().token);"
+              "const responseJson = pm.response.json();\r",
+              "const token =pm.environment.get('token');\r",
+              "\r",
+              "pm.test(\"Check created token\", ()=> {\r",
+              "    pm.expect(responseJson.token).to.be.not.null;\r",
+              "})\r",
+              "\r",
+              "pm.test(\"Check token variable value stored\", ()=> {\r",
+              "    pm.environment.set('token', responseJson.token);\r",
+              "    pm.expect(token).to.be.not.null\r",
+              "})"
             ],
             "type": "text/javascript",
             "packages": {},
