@@ -83,8 +83,7 @@
               "    pm.expect(responseJson.booking.bookingdates.checkin).to.eql(variables.get('checkin'));\r",
               "    pm.expect(responseJson.booking.bookingdates.checkout).to.eql(variables.get('checkout'));\r",
               "    pm.expect(responseJson.booking.additionalneeds).to.eql(variables.get('additionalneeds'));\r",
-              "});\r",
-              ""
+              "});"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -382,16 +381,15 @@
           "script": {
             "exec": [
               "const responseJson = pm.response.json();\r",
-              "const token =pm.environment.get('token');\r",
+              "\r",
+              "pm.environment.set('token', responseJson.token);\r",
               "\r",
               "pm.test(\"Check created token\", ()=> {\r",
               "    pm.expect(responseJson.token).to.be.not.null;\r",
               "})\r",
               "\r",
-              "pm.test(\"Check token variable value stored\", ()=> {\r",
-              "    pm.environment.set('token', responseJson.token);\r",
-              "    pm.expect(token).to.be.not.null\r",
-              "})"
+              "//debug\r",
+              "console.log(\"Saved token \" + pm.environment.get('token'));"
             ],
             "type": "text/javascript",
             "packages": {},
