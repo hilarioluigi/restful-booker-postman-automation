@@ -17,13 +17,13 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Install Newman
         run: npm install -g newman
 
       - name: Run Postman Collection
+        env:
+          AUTH_USER: ${{ secrets.POSTMAN_USERNAME }}
+          AUTH_PASS: ${{ secrets.POSTMAN_PASSWORD }}
         run: |
           newman run restful-booker.json \
           -e Restful-Booker.postman_environment \
