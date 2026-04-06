@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 24
 
@@ -27,5 +27,5 @@ jobs:
         run: |
           newman run Restful-Booker.postman_collection.json \
           -e Restful-Booker.postman_environment.json \
-          --env-var "username=$AUTH_USER" \
-          --env-var "password=$AUTH_PASS"
+          --env-var "username=${{ env.AUTH_USER }} \
+          --env-var "password=${{ env.AUTH_PASS }}"
