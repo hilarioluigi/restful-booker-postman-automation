@@ -389,8 +389,8 @@
               "})\r",
               "\r",
               "//debug\r",
-              "console.log(\"Saved token \" + pm.environment.get('token'));\r",
-              "console.log(\"Response token \" + responseJson.token);"
+              "//console.log(\"Saved token \" + pm.environment.get('token'));\r",
+              "//console.log(\"Response token \" + responseJson.token);"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -451,7 +451,7 @@
               "env.set('additionalneeds', replaceIn('{{$randomWords}}'));\r",
               "\r",
               "//debug\r",
-              "console.log(\"Current Token being used\" + env.get('token'));"
+              "//console.log(\"Current Token being used\" + env.get('token'));"
             ],
             "type": "text/javascript",
             "packages": {},
