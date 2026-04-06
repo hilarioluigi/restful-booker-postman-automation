@@ -21,8 +21,11 @@ jobs:
         run: npm install -g newman
 
       - name: Run Postman Collection
+        env: 
+          AUTH_USERNAME: ${{ secrets.POSTMAN_USERNAME }}
+          AUTH_PASSWORD: ${{ secrets.POSTMAN_PASSWORD }}
         run: |
           newman run Restful-Booker.postman_collection.json \
           -e Restful-Booker.postman_environment.json \
-          --env-var "username=${{ secrets.POSTMAN_USERNAME }}" \
-          --env-var "password=${{ secrets.POSTMAN_PASSWORD }}"
+          --env-var "username=$AUTH_USERNAME" \
+          --env-var "password=$AUTH_PASSWORD"
