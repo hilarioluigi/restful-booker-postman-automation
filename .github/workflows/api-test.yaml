@@ -25,7 +25,7 @@ jobs:
           AUTH_USER: ${{ secrets.POSTMAN_USERNAME }}
           AUTH_PASS: ${{ secrets.POSTMAN_PASSWORD }}
         run: |
-          newman run /Restful-Booker.postman_collection.json \
-          -e /Restful-Booker.postman_environment.json \
+          newman run Restful-Booker.postman_collection.json \
+          -e Restful-Booker.postman_environment.json \
           --env-var "username=$AUTH_USER" \
           --env-var "password=$AUTH_PASS"
